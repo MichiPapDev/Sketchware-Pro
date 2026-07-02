@@ -47,6 +47,7 @@ import mod.hey.studios.project.ProjectSettings;
 import mod.hey.studios.util.Helper;
 import mod.hey.studios.util.ProjectFile;
 import mod.hilal.saif.activities.tools.ConfigActivity;
+import mod.pap.github.MyprojectGithub;
 import pro.sketchware.R;
 import pro.sketchware.activities.iconcreator.IconCreatorActivity;
 import pro.sketchware.control.VersionDialog;
@@ -109,6 +110,7 @@ public class MyProjectSettingActivity extends BaseAppCompatActivity implements V
         binding.imgThemeColorHelp.setOnClickListener(this);
         binding.okButton.setOnClickListener(this);
         binding.cancel.setOnClickListener(this);
+        binding.gitHub.setOnClickListener(this);
 
         initializeThemePresets();
 
@@ -146,7 +148,8 @@ public class MyProjectSettingActivity extends BaseAppCompatActivity implements V
         }
         if (updatingExistingProject) {
             /* Set the dialog's title & save button label */
-            binding.toolbar.setTitle("Project Settings");
+            binding.toolbar.setTitle("Project Settings");   //proyect: info de proyecto creado
+            binding.gitHub.setVisibility(View.GONE);
             HashMap<String, Object> metadata = lC.b(sc_id);
             binding.etPackageName.setText(yB.c(metadata, "my_sc_pkg_name"));
             binding.etProjectName.setText(yB.c(metadata, "my_ws_name"));
@@ -245,6 +248,13 @@ public class MyProjectSettingActivity extends BaseAppCompatActivity implements V
             } else {
                 showOldVersionControlDialog();
             }
+        } else if (id == R.id.git_hub) {
+            // On click evente Github proyect
+            Intent intent = new Intent();
+            intent.setClass(getApplicationContext(), MyprojectGithub.class);
+            intent.putExtra("sc_id", sc_id);
+            startActivity(intent);
+
         }
     }
 

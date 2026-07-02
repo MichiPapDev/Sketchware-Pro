@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <item
+        android:id="@+id/nav_github_repo"
+        android:icon="@drawable/ic_mtrl_home"
+        android:title="Repositorios"
+
+        />
+    <item
+        android:id="@+id/nav_github_localgit"
+        android:icon="@drawable/user_48_grey_filled"
+        android:title="Local Git"
+
+        />
+
+
+</menu>
